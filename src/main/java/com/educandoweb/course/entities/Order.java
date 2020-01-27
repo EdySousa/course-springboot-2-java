@@ -98,6 +98,11 @@ public class Order implements Serializable {
 	public Set<OrderItem> getItems(){
 		return items;
 	}
+	
+	public Double getTotal() {
+		double total =  this.items.stream().mapToDouble(x -> x.getSubTotal()).sum();
+		return total;
+	}
 
 	@Override
 	public int hashCode() {
